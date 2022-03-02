@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>paises</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="contenedor"> 
+    <h1 class="titulo">Paises</h1>
+      <form [formGroup]="formulario" (ngSubmit)="search()" >
+  
+       <div>
+        <label class="label" position="floating" >Ingresa el Pais:</label>
+        
+        <input inputmode="text" formControlName="country">
+       </div>
+  
+  
+       
+       <div class="div">
+        <button  type="submit"  expand="block">Buscar!</button>
+        </div>
+  
+  
+      </form>
+      
+  </div>
+  
+  <p *ngIf="respuesta">'No hay datos para tal pais'</p>
+  <!--------------------------------------Mostrar lo de la busqueda -->
+  
+  
+  <div class="titulo"><p>Datos</p></div>
+      
+  
+  <div class="row">
+    <div class="col-12">
+        <table >
+            <thead>
+                <th>Country</th>
+                <th>State</th>
+                <th>Name</th>
+                <th>domains</th>
+                <th>alpha_two_code</th>
+                <th>web_pages</th>
+                
+                
+            </thead>
+            <tbody>
+                <tr *ngFor="let pais of pais_buscado" >
+  
+                    <td> {{pais.country}}</td>
+                    <td> {{pais.state}}</td>
+                    <td> {{pais.name}}</td>
+                    <td> {{pais.domains}}</td>
+                    <td> {{pais.alpha_two_code}}</td>
+                    <td> {{pais.web_pages}}</td>
+  
+                 
+                    
+                </tr>
+            </tbody>
+        </table>
+  
+    </div>
+  
+  </div>
+</ion-content>
